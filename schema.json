@@ -1,0 +1,82 @@
+{
+	"schema": [
+		{
+			"class": "feeling",
+			"isBoolean": false,
+			"directionType": "directed",
+			"types": ["closeness", "attraction","friendliness"],
+			"defaultValue": 0,
+			"minValue": 0,
+			"maxValue": 100,
+			"allowIntent": true
+		},
+		{
+			"class" : "mood",
+			"isBoolean" : false,
+			"directionType" : "undirected",
+			"types": ["confident", "unsure","selfish","disrespectful","casual","happy", "sad", "jealous", "angry"],
+			"allowIntent" : false,
+			"defaultValue" : 0,
+            "minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"class" : "attribute",
+			"types" : ["career-focused", "intelligence","unambitious","lazy"],
+			"isBoolean" : false,
+			"directionType" : "undirected",
+			"allowIntent" : true,
+			"defaultValue" : 0,
+			"maxValue" : 100,
+			"minValue" : 0
+		},
+		{
+			"class" : "trait",
+			"isBoolean" : false,
+			"directionType" : "undirected",
+			"types" : ["friendly", "unhygienic", "repulsive", "hygienic","respectful","communicative","smoker","drinker","social-drinker","uncommunicative"],
+			"allowIntent" : true,
+			"defaultValue" : 0,
+            "maxValue" : 100,
+            "minValue" : 0
+		},
+		{
+			"class": "SFDBLabel",
+			"types": ["romantic-failure", "romantic-advance"],
+			"isBoolean": true,
+			"directionType": "directed",
+			"defaultValue": false,
+			"allowIntent": false,
+			"duration": 0
+		},
+		{
+			"class": "SFDBLabelUndirected",
+			"types": ["embarrassing", "self-involved"],
+			"isBoolean": true,
+			"directionType": "undirected",
+			"defaultValue": false,
+			"allowIntent": false,
+			"duration": 0
+		},
+        {
+			"class": "Preference",
+			"isBoolean": true,
+			"directionType": "undirected",
+			"types": ["similar", "distinct"],
+			"defaultValue": false,
+			"allowIntent": true,
+            "duration": 0
+		},
+        {
+			"class": "relationship",
+			"isBoolean": false,
+			"directionType": "directed",
+			"types": ["friends", "enemies","neutral"],
+			"defaultValue": 0,
+			"allowIntent": true,
+            "maxValue" : 100,
+            "minValue" : 0
+		}
+	]
+}
+

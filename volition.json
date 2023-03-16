@@ -1,0 +1,23 @@
+{
+	"fileName": "volition",
+	"type": "volition",
+	"rules": [
+		{
+			"name": "The user wants the best compatability score",
+			"conditions": [],
+			"effects": [
+				{
+					"class": "attribute",
+					"type": "compatability-score",
+					"first": "hero",
+                    "second":"anyone",
+					"weight": 10,
+					"intentDirection": true,
+					"value": true
+				}
+			],
+			"origin": "volitionRules",
+			"id": "volitionRules_1"
+		}
+	]
+}

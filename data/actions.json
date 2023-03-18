@@ -2,14 +2,35 @@
 	"fileName" : "actions.json",
 	"actions" : [
 		{
-			"name" : "CLOSENESS",
+			"name" : "IncreaseComp",
 			"intent" : {
 				"class" : "feeling",
-				"type"  : "closeness",
+				"type"  : "compatibility-score",
 				"intentDirection" : true,
 				"first" : "initiator",
 				"second" : "responder"
 			},
+			"conditions" : [],
+			"influenceRules" : [],
+			"effects": [],
+			"leadsTo":["IncreaseAmbition","CLOSENESS","RaiseIntelligence","RaiseCleanliness","RaiseCommunication","RaiseRespect","RaisePreference"]
+		},
+		{
+			"name" : "DecreaseComp",
+			"intent" : {
+				"class" : "feeling",
+				"type"  : "compatibility-score",
+				"intentDirection" : true,
+				"first" : "initiator",
+				"second" : "responder"
+			},
+			"conditions" : [],
+			"influenceRules" : [],
+			"effects": [],
+			"leadsTo":["RaiseSmoking","ReduceAmbition","DecreasePreference","RaiseDrinking"]
+		},
+		{
+			"name" : "CLOSENESS",
 			"conditions" : [
 				{
 					"class" : "feeling",
@@ -17,7 +38,7 @@
 					"first" : "initiator",
 					"second" : "responder",
 					"operator": ">",
-					"value": 0
+					"value": -1
 				},
 				{
 					"class" : "feeling",
@@ -25,14 +46,14 @@
 					"first" : "initiator",
 					"second" : "responder",
 					"operator": ">",
-					"value": 0
+					"value": -1
 				}
 			],
 			"influenceRules" : [],
 			"effects": [
 				{
-					"class" : "attribute",
-					"type"  : "closeness",
+					"class" : "feeling",
+					"type"  : "compatibility-score",
 					"first" : "initiator",
 					"second" : "responder",
 					"operator": "+",
@@ -40,14 +61,9 @@
 				}
 			]
 		},
+
         {
 			"name" : "RaiseSmoking",
-			"intent" : {
-				"class" : "trait",
-				"type"  : "smoker",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"conditions" : [],
 			"effects":[
 				{
@@ -61,16 +77,10 @@
 		},
 		{
 			"name" : "IncreaseAmbition",
-			"intent" : {
-				"class" : "attribute",
-				"type"  : "career-focused",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"conditions" : [],
 			"effects":[
 				{
-					"class" : "attribute",
+					"class" : "feeling",
 					"type"  : "compatibility-score",
 					"first" : "initiator",
 					"second" : "responder",
@@ -82,16 +92,10 @@
 		},
 		{
 			"name" : "ReduceAmbition",
-			"intent" : {
-				"class" : "attribute",
-				"type"  : "unambitious",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"conditions" : [],
 			"effects":[
 				{
-					"class" : "attribute",
+					"class" : "feeling",
 					"type"  : "compatibility-score",
 					"first" : "initiator",
 					"second" : "responder",
@@ -102,16 +106,10 @@
 		},
 		{
 			"name" : "RaiseIntelligence",
-			"intent" : {
-				"class" : "attribute",
-				"type"  : "intelligence",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"conditions" : [],
 			"effects":[
 				{
-					"class" : "attribute",
+					"class" : "feeling",
 					"type"  : "compatibility-score",
 					"first" : "initiator",
 					"second" : "responder",
@@ -123,12 +121,6 @@
 		},
 		{
 			"name" : "RaiseCleanliness",
-			"intent" : {
-				"class" : "trait",
-				"type"  : "hygiene",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"effects":[
 				{
 					"class" : "trait",
@@ -142,12 +134,6 @@
 		},
 		{
 			"name" : "RaisePreference",
-			"intent" : {
-				"class" : "preference",
-				"type"  : "similar",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"effects":[
 				{
 					"class" : "attribute",
@@ -161,15 +147,9 @@
 		},
 		{
 			"name" : "DecreasePreference",
-			"intent" : {
-				"class" : "preference",
-				"type"  : "similar",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"effects":[
 				{
-					"class" : "attribute",
+					"class" : "feeling",
 					"type"  : "compatibility-score",
 					"first" : "initiator",
 					"second" : "responder",
@@ -180,12 +160,6 @@
 		},
 		{
 			"name" : "RaiseDrinking",
-			"intent" : {
-				"class" : "trait",
-				"type"  : "drinking",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"conditions" : [],
 			"effects":[
 				{
@@ -199,12 +173,6 @@
 		},
 		{
 			"name" : "RaiseCommunication",
-			"intent" : {
-				"class" : "trait",
-				"type"  : "communication",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"conditions" : [],
 			"effects":[
 				{
@@ -218,12 +186,6 @@
 		},
 		{
 			"name" : "RaiseRespect",
-			"intent" : {
-				"class" : "trait",
-				"type"  : "Respect",
-				"intentDirection" : true,
-				"first" : "user"
-			},
 			"conditions" : [],
 			"effects":[
 				{

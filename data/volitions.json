@@ -1,5 +1,5 @@
 {
-	"fileName": "volition",
+	"fileName": "volitions",
 	"type": "volition",
 	"rules": [
 		{
@@ -7,16 +7,16 @@
 			"conditions": [],
 			"effects": [
 				{
-					"class": "attribute",
-					"type": "compatability-score",
-					"first": "hero",
-                    "second":"anyone",
+					"class": "feeling",
+					"type": "compatibility-score",
+					"first": "rahul",
+					"second": "anyone",
 					"weight": 10,
 					"intentDirection": true,
 					"value": true
 				}
 			],
-			"origin": "volitionRules",
+			"origin": "volitions",
 			"id": "volitionRules_1"
 		}
 	]

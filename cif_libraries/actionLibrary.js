@@ -286,6 +286,7 @@
             //we don't know what to do here! Uh, end of the road? Return?
             return;
         }
+        
 
         currentUniqueBindings = getUniqueActionBindings(nonTerminal, uniqueBindings);
         //#CODEREVIEW -- why is cast passed in twice here? Ah, because one is available and one is all. But "all" never changes, so insead of passing in a clone, how about just a reference.

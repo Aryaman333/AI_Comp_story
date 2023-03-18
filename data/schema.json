@@ -4,7 +4,7 @@
 			"class": "feeling",
 			"isBoolean": false,
 			"directionType": "directed",
-			"types": ["closeness", "attraction","friendliness"],
+			"types": ["closeness", "attraction","friendliness","compatibility-score"],
 			"defaultValue": 0,
 			"minValue": 0,
 			"maxValue": 100,
@@ -12,7 +12,7 @@
 		},
 		{
 			"class" : "attribute",
-			"types" : ["career-focused", "intelligence","unambitious","compatibility-score"],
+			"types" : ["career-focused", "intelligence","unambitious"],
 			"isBoolean" : false,
 			"directionType" : "undirected",
 			"allowIntent" : true,
@@ -34,10 +34,10 @@
 			"class": "Preference",
 			"isBoolean": true,
 			"directionType": "undirected",
-			"types": ["similar", "distinct"],
+			"types": ["similar"],
 			"defaultValue": false,
 			"allowIntent": true,
-            "duration": 0
+			"duration": 1 
 		}
 	]
 }

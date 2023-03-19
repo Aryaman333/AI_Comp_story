@@ -9,11 +9,17 @@
 # The game starts here.
 $player = ""
 
-
+$import renpy.video
 
 label john_question():
-    $john = Character("John", image='john.jpg')
-    show john at left
+    $john = Character("John", image=r"C:\Users\HP\Downloads\Test_file\game\images\john.jpg")
+    show john:
+        xpos 5
+        ypos 5
+    
+    john " Hi [player] Let me give you a quick room tour before I jump to the questions"
+    $renpy.movie_cutscene("house1.webm")
+    john "Hope you liked the place lets jump to the questions real quick"
     john "How often do you clean your room in general?"
     menu:       
         "Everyday after work, I cant focus in a messy room":
@@ -132,14 +138,20 @@ label john_question():
     label after6:
         john "Got it!"
 
-        return
     
-    return
-
+    hide john
+    return 
 
 label shubh_question():
-    $shubh = Character("Shubh", image='shubh.jpg')
-    show shubh at left
+    $shubh = Character("Shubh", image=r'C:\Users\HP\Downloads\Test_file\game\images\shubh.jpg')
+    show shubh:
+        xpos 5
+        ypos 5
+
+    shubh "Hi buddy welcome to my humble aboard, hopefully you like it, let me ask some routine questions you know how it is, so here goes"
+    shubh " Let me give you a quick room tour before I jump to the questions"
+    $renpy.movie_cutscene("guitar.webm")
+    shubh "Ok that was my place hope you liked it lets get started then..."
     shubh "What time do you usually go to bed and wake up?"
 
     menu:       
@@ -151,8 +163,7 @@ label shubh_question():
             # call the corresponding cif action  
             jump after7 
 
-        "I don't have a set sleep schedule, it varies depending on my workload and social plans.
-":
+        "I don't have a set sleep schedule, it varies depending on my workload and social plans.":
             # call the corresponding cif action  
             jump after7               
 
@@ -247,12 +258,21 @@ label shubh_question():
     label after12:
         shubh "Got it!"
 
-        return
     
+    hide shubh
     return 
+
+
 label rahul_question():
-    $rahul = Character("Rahul", image='rahul.jpg')
-    show rahul at left
+    
+    $rahul = Character("Rahul", image=r'C:\Users\HP\Downloads\Test_file\game\images\rahul.jpg')
+    show rahul:
+        xpos 5
+        ypos 5
+
+    rahul "Heyy..[player] thanks for coming  "
+    rahul "Let me give you a quick house tour"
+    $renpy.movie_cutscene("house3.webm")
     rahul "The leasing rate for the room will be USD 1000. Are you okay with the cost?"
 
     menu:       
@@ -280,7 +300,7 @@ label rahul_question():
 
         "I dont watch a lot of movies, I am boring that way.":
             # call the corresponding cif action  
-            jump after14           
+            jump after14 
         
         "Dont have particular preference, I like good production over good actors.":
             # call the corresponding cif action  
@@ -377,35 +397,63 @@ label rahul_question():
     label after19:
         rahul "Got it!"    
 
-        return
-    
+        
+    hide rahul
     return         
 
 
 
-
 label john_intro():
-    $john = Character("John", image='john.jpg')
-    show john at left
-    john "Hello [player] how are you doing today, I am really excited to meet you and talk to you"
-    hide john
+    $john = Character("John", image=r'C:\Users\HP\Downloads\Test_file\game\images\john.jpg')
+    show john:
+        xalign 0.0
+        yalign 0.0
+
+
+    #Intro of the character
+    "{size=-5}John is a recent graduate and has just landed his first job in a new city.
+    He is looking for a roommate to share expenses with and make the transition to a new city smoother.{/size} "
+    john "Hello [player] how are you doing today, I am really excited to meet you "
+
+    # hide john
     return
 
 label rahul_intro():
-    $rahul = Character("Rahul", image='rahul.jpg')
+    $rahul = Character("Rahul", image=r'C:\Users\HP\Downloads\Test_file\game\images\rahul.jpg')
 
-    show rahul at left
+    show rahul:
+        xalign 0.5
+        yalign 0.0
+
+
+#Intro of the character
+    "{size=-5}Meet Rahul Raichand, he is a senior at UC Davis studying filmmaking. A born performer he always had a penchant for art , movies specifically. Hence he decided to study Film making,.
+    He is a passionate, caring human being and is also a bit of womanizer. He is currently dating Anjali from his class but the rumor is he is also interested Dean’s daughter Tina Malhotra. 
+    He is currently looking for a roommate who can take the other spare room and be a part of his fun and adventurous life {/size}"
+
+
     rahul "Hello [player]  I am Rahul, you must have heard my name I am quite famous, Lets finish this up quickly I have to meet Anjali my girlfriend"
 
-    hide rahul
+    # hide rahul
     return
 
 label shubh_intro():
-    $shubh = Character("Shubh", image='shubh.jpg')
+    $shubh = Character("Shubhankar", image=r'C:\Users\HP\Downloads\Test_file\game\images\shubh.jpg')
 
-    show shubh at left
+    show shubh:
+        xalign 1.0
+        yalign 0.0
+
+
+#Intro of the character
+    "{size=-5}Shubh is an international student at UC davis. He just moved from his home country(India) to UC Davis to pursue his graduate studies. 
+    Its his first international travel and happens to be a long one. Finding the ideal roommate who can keep a productive environment around
+    him is a concern for him. He is a friend of the user.{/size} "
+
+
     shubh "Yo [player]  how is it hanging, Hope you are not a phsycopath like the the last guy I interviewed, lets get started shall we"
-    hide shubh
+
+    # hide shubh
     return
    
 
@@ -416,7 +464,10 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene hall1
+    show hall1:
+        xzoom 2
+        yzoom 1.5
+        
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -441,8 +492,24 @@ label start:
     "Welcome [player] !! lets get started"
 
     "Its time to meet the characters"
+    # init python:
+    #     import openai
 
+    #     # Use the OpenAI API
+    #     openai.api_key = "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"
+    #     prompt = "What is the meaning of life?"
+    #     response = openai.Completion.create(
+    #         engine="text-davinci-002",
+    #         prompt=prompt,
+    #         max_tokens=50,
+    #         n=1,
+    #         stop=None,
+    #         temperature=0.5,
+    #     )
+    #     answer = response.choices[0].text.strip()
 
+    # #$meaning_of_life = python "answer"
+    # "The meaning of life is: [answer]"
 
     
 
@@ -457,42 +524,131 @@ label start:
 
     # hide shubh
 
+
+
+
+#calling all the introduction of characters
     call john_intro()
     call shubh_intro()
     call rahul_intro()
     $choice=0
-    $choice = int(renpy.input(" You can now choose which roomate you "))
     
     
-    "Cool, you chose option [choice] "
-    if choice == 1:
-        call john_question()
+ 
 
-    elif choice == 2:
-        call shubh_question()
-    elif choice == 3:
-        call rahul_question()    
-
+    #inputting the choice from the user 
+    $choice = renpy.input(" You can now choose which roomate you  1: John  2:Shubhankar  3:Rahul")
     
-    
-    # if choice==1:
-    #     show
+    $npc = {'1':'John', '2': 'Shubhankar', '3': 'Rahul'}
+
+    hide john
+    hide rahul
+    hide shubh
+
+    # "Cool, you chose option [choice] "
 
 
+    #calling the appropriate character questions
+    label x:
+        if choice=='1':
+            call john_question()
+            $npc.pop('1')
+        elif choice=='2':
+            call shubh_question()
+            $npc.pop('2')
+        elif choice=='3':
+            call rahul_question()
+            $npc.pop('3')
+        else:
+            
+            $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+            jump x
 
-    # This ends the game.
+    # python:
+        
+    #     for k,v in npc.items():
+    #         #t = npc[num]
+    #         renpy.show("Option {}: {}".format(k,v))
+
+    #choosing second character
+    $choice = renpy.input("That was nice onto the next one, You have the following roommate interviews left please select one of them")
+
+
+        #label y:
+    label y:
+        if choice=='1':
+            $boo=choice in npc
+            if boo==True:
+                call john_question()
+                $npc.pop('1')
+            else:
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                jump y
+            
+        elif choice=='2':
+            $boo=choice in npc
+            if boo==True:
+                call shubh_question()
+                $npc.pop('2')
+            else:
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                jump y
+            
+        elif choice=='3':
+            $boo=choice in npc
+            if boo==True:
+                call rahul_question()
+                $npc.pop('3')
+            else:
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                jump y
+
+            
+        else:           
+            $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+            jump y
+            
+    #choosing the third character
+    # python:
+
+    # for num in npc:
+    #     t = npc[num]
+    #     "Option [num]: [t]"
+
+    $choice = renpy.input("Phew !! 2 interviews down one last to go, You are almost there champ keep going, Davis's good weather awaits ")
+
+    label z:
+        if choice=='1':
+            $boo=choice in npc
+            if boo==True:
+                call john_question()
+                $npc.pop('1')
+            else:
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                jump z
+            
+        elif choice=='2':
+            $boo=choice in npc
+            if boo==True:
+                call shubh_question()
+                $npc.pop('2')
+            else:
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                jump z
+            
+        elif choice=='3':
+            $boo=choice in npc
+            if boo==True:
+                call rahul_question()
+                $npc.pop('3')
+            else:
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                jump z
+
+            
+        else:           
+            $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+            jump z
+
 
     return
-        
-        
-
-      
-
-
-
-
-
-
-   
-
-   

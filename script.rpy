@@ -12,10 +12,13 @@ $player = ""
 $import renpy.video
 
 label john_question():
-    $john = Character("John", image=r"C:\Users\HP\Downloads\Test_file\game\images\john.jpg")
+    $john = Character("John", image="john.jpg")
+    scene hall1:
+        xzoom 2.0
+        yzoom 1.5
     show john:
-        xpos 5
-        ypos 5
+        xalign 0.0
+        yalign 1.0
     
     john " Hi [player] Let me give you a quick room tour before I jump to the questions"
     $renpy.movie_cutscene("house1.webm")
@@ -23,7 +26,8 @@ label john_question():
     john "How often do you clean your room in general?"
     menu:       
         "Everyday after work, I cant focus in a messy room":
-            # call the corresponding cif action  
+            # call the corresponding cif action 
+            
             jump after
 
         "Twice in a week, I am mostly engaged in work but I cant work sitting in a mess, so i clean often":
@@ -53,7 +57,7 @@ label john_question():
             jump after1        
             
     label after1:
-        john"Got it!"
+        john"Good to know!"
 
     john "What are your thoughts about Private Space"
     menu:       
@@ -70,7 +74,7 @@ label john_question():
             jump after2        
             
     label after2:
-        john "Got it!"
+        john "Thanks for answering that, that very important for me"
 
 
     john "What are your thoughts about Respectfulness"
@@ -85,7 +89,7 @@ label john_question():
       
             
     label after3:
-        john "Got it!"
+        john "Got it"
 
     john "How do you feel about noise levels in the apartment?"
     menu:       
@@ -102,7 +106,7 @@ label john_question():
       
             
     label after4:
-        john "Got it!"
+        john "Hmmm... Interesting"
 
     john " How do you feel about splitting household chores with your roommate?"
     menu:       
@@ -119,7 +123,7 @@ label john_question():
       
             
     label after5:
-        john "Got it!"
+        john "Okkk.. "
 
     john " What is your stance on having pets in the apartment?"
     menu:       
@@ -136,23 +140,28 @@ label john_question():
       
             
     label after6:
-        john "Got it!"
+        john "Ahh.. nicee"
 
-    
+    hide hall1
     hide john
+    show ucdavis:
+        xzoom 1  
+        yzoom 1
     return 
 
-label shubh_question():
-    $shubh = Character("Shubh", image=r'C:\Users\HP\Downloads\Test_file\game\images\shubh.jpg')
-    show shubh:
-        xpos 5
-        ypos 5
-
-    shubh "Hi buddy welcome to my humble aboard, hopefully you like it, let me ask some routine questions you know how it is, so here goes"
-    shubh " Let me give you a quick room tour before I jump to the questions"
+label anya_question():
+    $anya = Character("Anya", image=r'C:\Users\HP\Downloads\Test_file\game\images\anya.jpg')
+    scene hall2:
+        xzoom 5
+        yzoom 4
+    show anya:
+        xalign 0.0
+        yalign 1.0
+    anya "Hi buddy welcome to my humble aboard, hopefully you like it, let me ask some routine questions you know how it is, so here goes"
+    anya " Let me give you a quick room tour before I jump to the questions"
     $renpy.movie_cutscene("guitar.webm")
-    shubh "Ok that was my place hope you liked it lets get started then..."
-    shubh "What time do you usually go to bed and wake up?"
+    anya "Ok that was my place hope you liked it lets get started then..."
+    anya "What time do you usually go to bed and wake up?"
 
     menu:       
         "I like to get to bed early and wake up early, so I'm usually asleep by 10 pm and up by 6 am.":
@@ -168,10 +177,10 @@ label shubh_question():
             jump after7               
 
     label after7:
-        "Got it!"
+        anya"That was a little personal, but that information helps"
 
 
-    shubh "How do you feel about having guests over?"
+    anya "How do you feel about having guests over?"
     menu:       
         "I love having friends over and hosting small gatherings occasionally, but I always give my roommate a heads up and make sure they are comfortable with it.":
             # call the corresponding cif action  
@@ -186,9 +195,9 @@ label shubh_question():
             jump after8        
             
     label after8:
-        shubh"Got it!"
+        anya"Thanks for letting me know"
 
-    shubh "How often do you clean up after yourself?"
+    anya "How often do you clean up after yourself?"
     menu:       
         "I like to keep things neat and tidy and clean up after myself as I go along throughout the day.":
             # call the corresponding cif action  
@@ -203,10 +212,10 @@ label shubh_question():
             jump after9        
             
     label after9:
-        shubh "Got it!"
+        anya "Got it!"
 
 
-    shubh "What are some of your hobbies?"
+    anya "What are some of your hobbies?"
     menu:       
         "I enjoy going to the gym and staying active, so I often go for runs or work out in the apartment.":
             # call the corresponding cif action  
@@ -222,9 +231,9 @@ label shubh_question():
       
             
     label after10:
-        shubh "Got it!"
+        anya "Wow that sounds really interesting, you seem to be good company "
 
-    shubh "How do you feel about noise levels in the apartment?"
+    anya "How do you feel about noise levels in the apartment?"
     menu:       
         "I don't mind some background noise, and I'm always up for having a good time with my roommate and their friends.":
             # call the corresponding cif action  
@@ -239,9 +248,9 @@ label shubh_question():
       
             
     label after11:
-        shubh "Got it!"
+        anya "Hmmmm....."
 
-    shubh "How do you feel about sharing food or cooking together?"
+    anya "How do you feel about sharing food or cooking together?"
     menu:       
         " I love cooking and would be happy to share meals or cook together with my roommate.":
             # call the corresponding cif action  
@@ -256,19 +265,25 @@ label shubh_question():
       
             
     label after12:
-        shubh "Got it!"
+        anya "Ahh I see.."
 
-    
-    hide shubh
+    hide hall2
+    hide anya
+    show ucdavis:
+        xzoom 1  
+        yzoom 1
     return 
 
 
 label rahul_question():
-    
+    #play music r'C:/Users/HP/Downloads/Test_file/game/audio/Don2.mp3' loop
     $rahul = Character("Rahul", image=r'C:\Users\HP\Downloads\Test_file\game\images\rahul.jpg')
+    scene hall3:
+        xzoom 1.5
+        yzoom 1.5
     show rahul:
-        xpos 5
-        ypos 5
+        xalign 0.0
+        yalign 0.9
 
     rahul "Heyy..[player] thanks for coming  "
     rahul "Let me give you a quick house tour"
@@ -289,7 +304,8 @@ label rahul_question():
             jump after13               
 
     label after13:
-        "Got it!"
+        "Okk.."
+        
 
 
     rahul "Who is your favorite actor?"
@@ -307,7 +323,7 @@ label rahul_question():
             jump after14        
             
     label after14:
-        rahul"Got it!"
+        rahul"Got it"
 
     rahul "How often do you party and mind patries in your household?"
     menu:       
@@ -397,17 +413,25 @@ label rahul_question():
     label after19:
         rahul "Got it!"    
 
-        
+    hide hall3
+
     hide rahul
+    stop music
+    show ucdavis:
+        xzoom 1  
+        yzoom 1
     return         
 
 
 
 label john_intro():
-    $john = Character("John", image=r'C:\Users\HP\Downloads\Test_file\game\images\john.jpg')
+    $john = Character("John", image='john.jpg')
     show john:
         xalign 0.0
-        yalign 0.0
+        yalign 1.0
+  
+        
+
 
 
     #Intro of the character
@@ -423,7 +447,8 @@ label rahul_intro():
 
     show rahul:
         xalign 0.5
-        yalign 0.0
+        yalign 0.5
+    
 
 
 #Intro of the character
@@ -437,38 +462,43 @@ label rahul_intro():
     # hide rahul
     return
 
-label shubh_intro():
-    $shubh = Character("Shubhankar", image=r'C:\Users\HP\Downloads\Test_file\game\images\shubh.jpg')
+label anya_intro():
+    $anya = Character("anya", image=r'C:\Users\HP\Downloads\Test_file\game\images\anya.jpg')
 
-    show shubh:
+    show anya:
         xalign 1.0
-        yalign 0.0
+        yalign 0.8
+
 
 
 #Intro of the character
-    "{size=-5}Shubh is an international student at UC davis. He just moved from his home country(India) to UC Davis to pursue his graduate studies. 
+    "{size=-5}anya is an international student at UC davis. He just moved from his home country(India) to UC Davis to pursue his graduate studies. 
     Its his first international travel and happens to be a long one. Finding the ideal roommate who can keep a productive environment around
     him is a concern for him. He is a friend of the user.{/size} "
 
 
-    shubh "Yo [player]  how is it hanging, Hope you are not a phsycopath like the the last guy I interviewed, lets get started shall we"
+    anya "Yo [player]  how is it hanging, Hope you are not a phsycopath like the the last guy I interviewed, lets get started shall we"
 
-    # hide shubh
+    # hide anya
     return
    
 
 
 label start:
-
+    # python:
+    #     import openai
+    # "Yooooooooooooooooooooooooooooooooooooooo"
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
+    #play music r'C:/Users/HP/Downloads/Test_file/game/audio/audio-piku.mp3' loop
+    $renpy.movie_cutscene("intro.webm")
+    show ucdavis:
+        xzoom 1  
+        yzoom 1
 
-    show hall1:
-        xzoom 2
-        yzoom 1.5
-        
-
+    # $renpy.set_music_volume(0.5)  
+    # play music r'C:/Users/HP/Downloads/Test_file/game/audio/Don2.mp3' loop
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
@@ -476,9 +506,9 @@ label start:
 
 
     # These display lines of dialogue.
-
-    "Welcome to the Roomate Finder Game, lets find a roomate real fast, 
-    the next quarter is upon us you dont want to be stuck at your aunt's place do you !!!"
+ 
+    "{b}Welcome to the Roomate Finder Game, lets find a roomate real fast, 
+    the next quarter is upon us you dont want to be stuck at your aunt's place do you !!!{/b}"
 
     # "What is your name"
 
@@ -519,17 +549,17 @@ label start:
 
     # hide rahul
 
-    # show shubh at left
-    # shubh "Yo [player]  how is it hanging, Hope you are not a phsycopath like the the last guy I interviewed, lets get started shall we"
+    # show anya at left
+    # anya "Yo [player]  how is it hanging, Hope you are not a phsycopath like the the last guy I interviewed, lets get started shall we"
 
-    # hide shubh
+    # hide anya
 
 
 
 
 #calling all the introduction of characters
     call john_intro()
-    call shubh_intro()
+    call anya_intro()
     call rahul_intro()
     $choice=0
     
@@ -537,13 +567,13 @@ label start:
  
 
     #inputting the choice from the user 
-    $choice = renpy.input(" You can now choose which roomate you  1: John  2:Shubhankar  3:Rahul")
+    $choice = renpy.input(" You can now choose which roomate you  1: John  2:Anya  3:Rahul")
     
-    $npc = {'1':'John', '2': 'Shubhankar', '3': 'Rahul'}
+    $npc = {'1':'John', '2': 'Anya', '3': 'Rahul'}
 
     hide john
     hide rahul
-    hide shubh
+    hide anya
 
     # "Cool, you chose option [choice] "
 
@@ -554,7 +584,7 @@ label start:
             call john_question()
             $npc.pop('1')
         elif choice=='2':
-            call shubh_question()
+            call anya_question()
             $npc.pop('2')
         elif choice=='3':
             call rahul_question()
@@ -588,7 +618,7 @@ label start:
         elif choice=='2':
             $boo=choice in npc
             if boo==True:
-                call shubh_question()
+                call anya_question()
                 $npc.pop('2')
             else:
                 $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
@@ -630,7 +660,7 @@ label start:
         elif choice=='2':
             $boo=choice in npc
             if boo==True:
-                call shubh_question()
+                call anya_question()
                 $npc.pop('2')
             else:
                 $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")

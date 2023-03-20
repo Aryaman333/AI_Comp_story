@@ -45,8 +45,8 @@ app.post('/getAttribute', bodyParser.json(), function (req, res) {
         "first" : "Player",
         "second":req.body['second']
     };
-    res.end(JSON.stringify(cif.get(attributeQuery)))
-})
+    res.end(JSON.stringify(cif.get(attributeQuery)));
+});
 
 var server = app.listen(8081, function () {
     console.log("CiF backend listening")

@@ -44,12 +44,14 @@ app.post('/performAction', bodyParser.json(), function (req, res) {
 
 app.post('/getAttribute', bodyParser.json(), function (req, res) {
     var attributeQuery = {
-        "class" : req.body['class'],
-        "type" : req.body['type'],
-        "first" : "hero"
+        "class": req.body['class'],
+        "type": req.body['type'],
+        "first": "Player",
+        "second": req.body['second']
+
     };
-    res.end(JSON.stringify(cif.get(attributeQuery)))
-})
+    res.end(JSON.stringify(cif.get(attributeQuery)));
+});
 
 var server = app.listen(8081, function () {
     console.log("CiF backend listening")

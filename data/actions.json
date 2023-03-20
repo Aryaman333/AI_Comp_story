@@ -1,202 +1,341 @@
 {
 	"fileName" : "actions.json",
 	"actions" : [
-		{
-			"name" : "IncreaseComp",
-			"intent" : {
-				"class" : "feeling",
-				"type"  : "compatibility-score",
-				"intentDirection" : true,
-				"first" : "initiator",
-				"second" : "responder"
-			},
-			"conditions" : [],
-			"influenceRules" : [],
-			"effects": [],
-			"leadsTo":["IncreaseAmbition","CLOSENESS","RaiseIntelligence","RaiseCleanliness","RaiseCommunication","RaiseRespect","RaisePreference"]
-		},
-		{
-			"name" : "DecreaseComp",
-			"intent" : {
-				"class" : "feeling",
-				"type"  : "compatibility-score",
-				"intentDirection" : true,
-				"first" : "initiator",
-				"second" : "responder"
-			},
-			"conditions" : [],
-			"influenceRules" : [],
-			"effects": [],
-			"leadsTo":["RaiseSmoking","ReduceAmbition","DecreasePreference","RaiseDrinking"]
-		},
-		{
-			"name" : "CLOSENESS",
-			"conditions" : [
-				{
-					"class" : "feeling",
-					"type"  : "attraction",
-					"first" : "initiator",
-					"second" : "responder",
-					"operator": ">",
-					"value": -1
-				},
-				{
-					"class" : "feeling",
-					"type"  : "friendliness",
-					"first" : "initiator",
-					"second" : "responder",
-					"operator": ">",
-					"value": -1
-				}
-			],
-			"influenceRules" : [],
-			"effects": [
-				{
-					"class" : "feeling",
-					"type"  : "compatibility-score",
-					"first" : "initiator",
-					"second" : "responder",
-					"operator": "+",
-					"value": 40
-				}
-			]
-		},
-
         {
-			"name" : "RaiseSmoking",
+            "name" : "IncHygieneJohn",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "hygiene",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "John"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["IncScoreJohn"]
+        },
+        {
+            "name" : "DecHygieneJohn",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "hygiene",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "John"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["decScoreJohn"]
+        },
+        {
+            "name" : "IncPrefJohn",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "preference",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "John"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["IncScoreJohn"]
+        },
+        {
+            "name" : "DecPrefJohn",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "preference",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "John"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["decScoreJohn"]
+        },
+        {
+            "name" : "IncIntellectJohn",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "intellect",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "John"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["IncScoreJohn"]
+        },
+        {
+            "name" : "DecIntellectJohn",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "intellect",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "John"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["decScoreJohn"]
+        },
+        {
+            "name" : "IncHygieneRahul",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "hygiene",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Rahul"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["IncScoreRahul"]
+        },
+        {
+            "name" : "DecHygieneRahul",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "hygiene",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Rahul"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["decScoreRahul"]
+        },
+        {
+            "name" : "IncPrefRahul",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "preference",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Rahul"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["IncScoreRahul"]
+        },
+        {
+            "name" : "DecPrefRahul",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "preference",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Rahul"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["decScoreRahul"]
+        },
+        {
+            "name" : "IncIntellectRahul",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "intellect",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Rahul"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["IncScoreRahul"]
+        },
+        {
+            "name" : "DecIntellectRahul",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "intellect",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Rahul"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["decScoreRahul"]
+        },
+        {
+            "name" : "IncHygieneShubh",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "hygiene",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Shubh"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["IncScoreShubh"]
+        },
+        {
+            "name" : "DecHygieneShubh",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "hygiene",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Shubh"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["decScoreShubh"]
+        },
+        {
+            "name" : "IncPrefShubh",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "preference",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Shubh"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["IncScoreShubh"]
+        },
+        {
+            "name" : "DecPrefShubh",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "preference",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Shubh"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["decScoreShubh"]
+        },
+        {
+            "name" : "IncIntellectShubh",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "intellect",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Shubh"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["IncScoreShubh"]
+        },
+        {
+            "name" : "DecIntellectShubh",
+            "intent" : {
+                "class" : "attribute",
+                "type"  : "intellect",
+                "intentDirection" : true,
+                "first" : "Player",
+                "second" : "Shubh"
+            },
+            "conditions" : [],
+            "influenceRules" : [],
+            "effects": [ ],
+            "leadsTo":["decScoreShubh"]
+        },
+		{
+			"name" : "IncScoreJohn",
 			"conditions" : [],
 			"effects":[
 				{
-					"class" : "trait",
-					"type"  : "smoking",
-					"first" : "initiator",
+					"class" : "score",
+					"type"  : "ScoreJohn",
+					"first" : "Player",
+                    "second": "John",
 					"operator": "+",
 					"value": 20
 				}
 			]
 		},
-		{
-			"name" : "IncreaseAmbition",
+        {
+			"name" : "DecScoreJohn",
 			"conditions" : [],
 			"effects":[
 				{
-					"class" : "feeling",
-					"type"  : "compatibility-score",
-					"first" : "initiator",
-					"second" : "responder",
-					"operator": "+",
-					"value": 30
-				}
-			]
-
-		},
-		{
-			"name" : "ReduceAmbition",
-			"conditions" : [],
-			"effects":[
-				{
-					"class" : "feeling",
-					"type"  : "compatibility-score",
-					"first" : "initiator",
-					"second" : "responder",
+					"class" : "score",
+					"type"  : "ScoreJohn",
+					"first" : "Player",
+                    "second": "John",
 					"operator": "-",
-					"value": 10
+					"value": 20
 				}
 			]
 		},
-		{
-			"name" : "RaiseIntelligence",
+        {
+			"name" : "IncScoreRahul",
 			"conditions" : [],
 			"effects":[
 				{
-					"class" : "feeling",
-					"type"  : "compatibility-score",
-					"first" : "initiator",
-					"second" : "responder",
-					"operator": "+",
-					"value": 5
-				}
-			]
-
-		},
-		{
-			"name" : "RaiseCleanliness",
-			"effects":[
-				{
-					"class" : "trait",
-					"type"  : "hygiene",
-					"first" : "initiator",
-					"second" : "responder",
+					"class" : "score",
+					"type"  : "ScoreRahul",
+					"first" : "Player",
+                    "second": "Rahul",
 					"operator": "+",
 					"value": 20
 				}
 			]
 		},
-		{
-			"name" : "RaisePreference",
+        {
+			"name" : "decScoreRahul",
+			"conditions" : [],
 			"effects":[
 				{
-					"class" : "attribute",
-					"type"  : "similar",
-					"first" : "initiator",
-					"second" : "responder",
-					"operator": "+",
-					"value": 10
-				}
-			]
-		},
-		{
-			"name" : "DecreasePreference",
-			"effects":[
-				{
-					"class" : "feeling",
-					"type"  : "compatibility-score",
-					"first" : "initiator",
-					"second" : "responder",
+					"class" : "score",
+					"type"  : "ScoreRahul",
+					"first" : "Player",
+                    "second": "Rahul",
 					"operator": "-",
-					"value": 10
+					"value": 20
 				}
 			]
 		},
-		{
-			"name" : "RaiseDrinking",
+        {
+			"name" : "IncScoreShubh",
 			"conditions" : [],
 			"effects":[
 				{
-					"class" : "trait",
-					"type"  : "drinking",
-					"first" : "initiator",
+					"class" : "score",
+					"type"  : "ScoreShubh",
+					"first" : "Player",
+                    "second": "Shubh",
 					"operator": "+",
 					"value": 20
 				}
 			]
 		},
-		{
-			"name" : "RaiseCommunication",
+        {
+			"name" : "decScoreShubh",
 			"conditions" : [],
 			"effects":[
 				{
-					"class" : "trait",
-					"type"  : "communication",
-					"first" : "initiator",
-					"operator": "+",
-					"value": 20
-				}
-			]
-		},
-		{
-			"name" : "RaiseRespect",
-			"conditions" : [],
-			"effects":[
-				{
-					"class" : "trait",
-					"type"  : "Respect",
-					"first" : "initiator",
+					"class" : "score",
+					"type"  : "ScoreShubh",
+					"first" : "Player",
+                    "second": "Shubh",
 					"operator": "+",
 					"value": 20
 				}
 			]
 		}
-
-	]
+    ]
 }

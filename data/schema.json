@@ -1,10 +1,10 @@
 {
 	"schema": [
 		{
-			"class": "feeling",
+			"class": "score",
 			"isBoolean": false,
 			"directionType": "directed",
-			"types": ["closeness", "attraction","friendliness","compatibility-score"],
+			"types": ["ScoreJohn", "ScoreRahul","ScoreShubh"],
 			"defaultValue": 0,
 			"minValue": 0,
 			"maxValue": 100,
@@ -12,32 +12,13 @@
 		},
 		{
 			"class" : "attribute",
-			"types" : ["career-focused", "intelligence","unambitious"],
+			"types" : ["hygiene", "intellect","preference"],
 			"isBoolean" : false,
-			"directionType" : "undirected",
+			"directionType" : "directed",
 			"allowIntent" : true,
 			"defaultValue" : 0,
 			"maxValue" : 100,
 			"minValue" : 0
-		},
-		{
-			"class" : "trait",
-			"isBoolean" : false,
-			"directionType" : "undirected",
-			"types" : ["hygiene","respect","communication","smoking","drinking"],
-			"allowIntent" : true,
-			"defaultValue" : 0,
-            "maxValue" : 100,
-            "minValue" : 0
-		},
-        {
-			"class": "Preference",
-			"isBoolean": true,
-			"directionType": "undirected",
-			"types": ["similar"],
-			"defaultValue": false,
-			"allowIntent": true,
-			"duration": 1 
 		}
 	]
 }

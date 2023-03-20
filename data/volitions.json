@@ -3,21 +3,157 @@
 	"type": "volition",
 	"rules": [
 		{
-			"name": "The user wants the best compatability score",
+			"name": "John wants similar preference",
 			"conditions": [],
 			"effects": [
 				{
-					"class": "feeling",
-					"type": "compatibility-score",
-					"first": "rahul",
-					"second": "anyone",
-					"weight": 10,
+					"class": "attribute",
+					"type": "preference",
+					"first": "Player",
+					"second": "john",
+					"weight": 30,
 					"intentDirection": true,
 					"value": true
 				}
 			],
 			"origin": "volitions",
 			"id": "volitionRules_1"
+		},
+		{
+			"name": "John wants good hygiene",
+			"conditions": [],
+			"effects": [
+				{
+					"class": "attribute",
+					"type": "hygiene",
+					"first": "Player",
+					"second": "john",
+					"weight": 40,
+					"intentDirection": true,
+					"value": true
+				}
+			],
+			"origin": "volitions",
+			"id": "volitionRules_2"
+		},
+		{
+			"name": "John does not care about the intellect of the person",
+			"conditions": [],
+			"effects": [
+				{
+					"class": "attribute",
+					"type": "intellect",
+					"first": "Player",
+					"second": "john",
+					"weight": 5,
+					"intentDirection": true,
+					"value": true
+				}
+			],
+			"origin": "volitions",
+			"id": "volitionRules_3"
+		},
+		{
+			"name": "Rahul cares less about preference",
+			"conditions": [],
+			"effects": [
+				{
+					"class": "attribute",
+					"type": "preference",
+					"first": "Player",
+					"second": "Rahul",
+					"weight": 2,
+					"intentDirection": true,
+					"value": true
+				}
+			],
+			"origin": "volitions",
+			"id": "volitionRules_4"
+		},
+		{
+			"name": "Rahul cares alot about hygiene",
+			"conditions": [],
+			"effects": [
+				{
+					"class": "attribute",
+					"type": "hygiene",
+					"first": "Player",
+					"second": "Rahul",
+					"weight": 40,
+					"intentDirection": true,
+					"value": true
+				}
+			],
+			"origin": "volitions",
+			"id": "volitionRules_5"
+		},
+		{
+			"name": "Intellect is important for Rahul",
+			"conditions": [],
+			"effects": [
+				{
+					"class": "attribute",
+					"type": "intellect",
+					"first": "Player",
+					"second": "Rahul",
+					"weight": 40,
+					"intentDirection": true,
+					"value": true
+				}
+			],
+			"origin": "volitions",
+			"id": "volitionRules_6"
+		},
+		{
+			"name": "Shubh wants similar preference",
+			"conditions": [],
+			"effects": [
+				{
+					"class": "attribute",
+					"type": "preference",
+					"first": "Player",
+					"second": "Shubh",
+					"weight": 40,
+					"intentDirection": true,
+					"value": true
+				}
+			],
+			"origin": "volitions",
+			"id": "volitionRules_7"
+		},
+		{
+			"name": "Shubh cares less about hygiene",
+			"conditions": [],
+			"effects": [
+				{
+					"class": "attribute",
+					"type": "hygiene",
+					"first": "Player",
+					"second": "Shubh",
+					"weight": 20,
+					"intentDirection": true,
+					"value": true
+				}
+			],
+			"origin": "volitions",
+			"id": "volitionRules_8"
+		},
+		{
+			"name": "Shubh cares less about the intellect of the person",
+			"conditions": [],
+			"effects": [
+				{
+					"class": "attribute",
+					"type": "intellect",
+					"first": "Player",
+					"second": "Shubh",
+					"weight": 10,
+					"intentDirection": true,
+					"value": true
+				}
+			],
+			"origin": "volitions",
+			"id": "volitionRules_9"
 		}
 	]
 }

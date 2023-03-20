@@ -12,18 +12,20 @@ $player = ""
 $import renpy.video
 
 label john_question():
-    $john = Character("John", image=r"C:\Users\HP\Downloads\Test_file\game\images\john.jpg")
+    $john = Character("John", image=r"john.jpg")
     show john:
         xpos 5
         ypos 5
     
     john " Hi [player] Let me give you a quick room tour before I jump to the questions"
-    $renpy.movie_cutscene("house1.webm")
+    #$renpy.movie_cutscene("house1.webm")
     john "Hope you liked the place lets jump to the questions real quick"
     john "How often do you clean your room in general?"
     menu:       
         "Everyday after work, I cant focus in a messy room":
-            # call the corresponding cif action  
+            # call the corresponding cif action 
+            call call_action("IncreaseAmbition")
+            call get_attribute("compatibility-score","feeling","Player","John")
             jump after
 
         "Twice in a week, I am mostly engaged in work but I cant work sitting in a mess, so i clean often":
@@ -143,7 +145,7 @@ label john_question():
     return 
 
 label shubh_question():
-    $shubh = Character("Shubh", image=r'C:\Users\HP\Downloads\Test_file\game\images\shubh.jpg')
+    $shubh = Character("Shubh", image=r'anya.jpg')
     show shubh:
         xpos 5
         ypos 5
@@ -264,8 +266,8 @@ label shubh_question():
 
 
 label rahul_question():
-    play music r'C:/Users/HP/Downloads/Test_file/game/audio/Don2.mp3' loop
-    $rahul = Character("Rahul", image=r'C:\Users\HP\Downloads\Test_file\game\images\rahul.jpg')
+    #play music r'C:/Users/HP/Downloads/Test_file/game/audio/Don2.mp3' loop
+    $rahul = Character("Rahul", image=r'rahul.jpg')
     show rahul:
         xpos 5
         ypos 5
@@ -277,8 +279,10 @@ label rahul_question():
 
     menu:       
         "Yes sure no problem sounds fine":
-            # call the corresponding cif action  
+            # call the corresponding cif action 
+
             jump after13
+
 
         "Yea about that , can I get a slight reduction in that if possible.":
             # call the corresponding cif action  
@@ -405,7 +409,7 @@ label rahul_question():
 
 
 label john_intro():
-    $john = Character("John", image=r'C:\Users\HP\Downloads\Test_file\game\images\john.jpg')
+    $john = Character("John", image=r'john.jpg')
     show john:
         xalign 0.0
         yalign 0.0
@@ -420,7 +424,7 @@ label john_intro():
     return
 
 label rahul_intro():
-    $rahul = Character("Rahul", image=r'C:\Users\HP\Downloads\Test_file\game\images\rahul.jpg')
+    $rahul = Character("Rahul", image=r'rahul.jpg')
 
     show rahul:
         xalign 0.5
@@ -439,7 +443,7 @@ label rahul_intro():
     return
 
 label shubh_intro():
-    $shubh = Character("Shubhankar", image=r'C:\Users\HP\Downloads\Test_file\game\images\shubh.jpg')
+    $shubh = Character("Shubhankar", image=r'anya.jpg')
 
     show shubh:
         xalign 1.0
@@ -458,18 +462,28 @@ label shubh_intro():
     return
    
 
-
+init python:
+        import requests
+        import json
+        BASE_URL = 'http://localhost:8081/'
+        headers = {
+            'Content-Type': 'application/json',
+        }
 label start:
-    python:
-        import openai
+    
+        
+    
+    #python
+        
+        #import openai
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-    play music r'C:/Users/HP/Downloads/Test_file/game/audio/audio-piku.mp3' loop
-    show ucdavis:
-        xzoom 2  
-        yzoom 1.5
+    #play music r'C:/Users/HP/Downloads/Test_file/game/audio/audio-piku.mp3' loop
+    #show ucdavis:
+        #xzoom 2  
+        #yzoom 1.5
 
     # $renpy.set_music_volume(0.5)  
     # play music r'C:/Users/HP/Downloads/Test_file/game/audio/Don2.mp3' loop
@@ -653,5 +667,23 @@ label start:
             $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
             jump z
 
+
+label call_action(action=""):
+    python: 
+        import requests
+        requests.post(BASE_URL+'performAction',headers=headers, json={
+            'action': action
+        })
+
+label get_attribute(types="",cl="",first="",second=""):
+    python:
+        import requests
+
+        requests.get(BASE_URL+'getAttribute',headers=headers, json={
+            "class" : cl,
+            "type" : types,
+            "first" : first,
+            "second": second
+        })
 
     return

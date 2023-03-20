@@ -1,4 +1,4 @@
-var express = require('express')
+var express =require('express')
 var fs = require('fs')
 var cif = require('./cif_libraries/cif.js')
 var bodyParser = require('body-parser')
@@ -13,9 +13,6 @@ var schema = cif.loadSocialStructure(rawSchema);
 var rawCast = JSON.parse(cif.loadFile("data/cast.json"));
 var cast = cif.addCharacters(rawCast);
 
-//var rawTriggerRules = JSON.parse(cif.loadFile("data/triggerRules.json"));
-//var triggerRules = cif.addRules(rawTriggerRules);
-
 var rawVolitionRules = JSON.parse(cif.loadFile("data/volitions.json"));
 var volitionRules = cif.addRules(rawVolitionRules);
 
@@ -28,7 +25,6 @@ actions.forEach((obj) => {
 
 var rawHistory = JSON.parse(cif.loadFile("data/history.json"));
 var history = cif.addHistory(rawHistory);
-
 
 
 app.get('/getActions', function (req, res) {
@@ -46,7 +42,8 @@ app.post('/getAttribute', bodyParser.json(), function (req, res) {
     var attributeQuery = {
         "class" : req.body['class'],
         "type" : req.body['type'],
-        "first" : "hero"
+        "first" : "Player",
+        "second":req.body['second']
     };
     res.end(JSON.stringify(cif.get(attributeQuery)))
 })

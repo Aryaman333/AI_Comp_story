@@ -163,7 +163,7 @@ label john_question():
     scene hall1:
         xzoom 2.0
         yzoom 1.5
-    play music r'C:/Users/kaler/Downloads/RenPy/New folder/roommates/game/audio/audio_john.mp3' loop
+    play music r'audio/audio_john.mp3' loop
     show john:
         xalign 0.0
         yalign 1.0
@@ -322,7 +322,7 @@ label john_question():
 
 
 label anya_question():
-    play music r'C:/Users/kaler/Downloads/RenPy/New folder/roommates/game/audio/audio_anya.mp3' loop
+    play music r'audio/audio_anya.mp3' loop
     $anya = Character("Anya", image='anya.jpg')
     scene hall2:
         xzoom 5
@@ -472,158 +472,10 @@ label anya_question():
         xzoom 1  
         yzoom 1
     return 
-
-
-# label rahul_question():
-#     #play music r'C:/Users/HP/Downloads/Test_file/game/audio/
-#Don2.mp3' loop
-#     $rahul = Character("Rahul", image='rahul.jpg')
-#     scene hall3:
-#         xzoom 1.5
-#         yzoom 1.5
-#     show rahul:
-#         xalign 0.0
-#         yalign 0.9
-
-#     rahul "Heyy..[player] thanks for coming  "
-#     rahul "Let me give you a quick house tour"
-#     $renpy.movie_cutscene("house3.webm")
-#     rahul "The leasing rate for the room will be USD 1000. Are you okay with the cost?"
-
-#     menu:       
-#         "Yes sure no problem sounds fine":
-#             # call the corresponding cif action  
-#             jump after13
-
-#         "Yea about that , can I get a slight reduction in that if possible.":
-#             # call the corresponding cif action  
-#             jump after13 
-
-#         "Oh that seems really high and out of my budget can you please give an exemption like for the first few months.":
-#             # call the corresponding cif action  
-#             jump after13               
-
-#     label after13:
-#         "Okk.."
-        
-
-
-#     rahul "Who is your favorite actor?"
-#     menu:       
-#         "Obviously not even a question it has to be Shahruk Khan, the king, his wit his charm his range of expressions, his versatility is of top class":
-#             # call the corresponding cif action  
-#             jump after14
-
-#         "I dont watch a lot of movies, I am boring that way.":
-#             # call the corresponding cif action  
-#             jump after14 
-        
-#         "Dont have particular preference, I like good production over good actors.":
-#             # call the corresponding cif action  
-#             jump after14        
-            
-#     label after14:
-#         rahul"Got it"
-
-#     rahul "How often do you party and mind patries in your household?"
-#     menu:       
-#         "I love parties , I party every weekend sometimes for 2-3 days straight":
-#             # call the corresponding cif action  
-#             jump after15
-
-#         "I like them,never hosted one but always up for one.":
-#             # call the corresponding cif action  
-#             jump after15           
-        
-#         "I usually dont party that much I like studying at night and prefer silence while doing so.":
-#             # call the corresponding cif action  
-#             jump after15        
-            
-#     label after15:
-#         rahul "Got it!"
-
-
-#     rahul "How often do you cook ?"
-#     menu:       
-#         "I usually dont cook that much.":
-#             # call the corresponding cif action  
-#             jump after16
-
-#         "I love cooking now and then":
-#             # call the corresponding cif action  
-#             jump after16
-
-#         "I only eat home cooked food and we can even cook together":
-#             # call the corresponding cif action  
-#             jump after16                
-      
-            
-#     label after16:
-#         rahul "Got it!"
-
-#     rahul "Is cleanliness important for you "
-#     menu:       
-#         "Yea i keep my room very clean and expect the house to be clean as well and will regularly clean the house":
-#             # call the corresponding cif action  
-#             jump after17
-
-#         "Yeah I am a person who is not very particular but will keep my things clean.":
-#             # call the corresponding cif action  
-#             jump after17
-
-#         "We can hire a maid":
-#             jump after17           
-      
-            
-#     label after17:
-#         rahul "Got it!"
-
-#     rahul "Do you own a vehicle"
-#     menu:       
-#         "Yes I have a car that I will use to commute to college":
-#             # call the corresponding cif action  
-#             jump after18
-
-#         "I have a bike":
-#             # call the corresponding cif action  
-#             jump after18
-
-#         "I don’t currently, I haven’t figured out how i will commute to college yet":
-#             jump after18           
-      
-            
-#     label after18:
-#         rahul "Got it!"
-
-#     rahul "How long are you thinking of leasing the apartment?"
-#     menu:       
-#         "3 months":
-#             # call the corresponding cif action  
-#             jump after19
-
-#         "4 years":
-#             # call the corresponding cif action  
-#             jump after19
-
-#         "1 year":
-#             # call the corresponding cif action 
-#             jump after19          
-      
-            
-#     label after19:
-#         rahul "Got it!"    
-
-#     hide hall3
-
-#     hide rahul
-#     stop music
-#     show ucdavis:
-#         xzoom 1  
-#         yzoom 1
-#     return         
+     
 
 label rahul_question():
-    play music r'C:/Users/kaler/Downloads/RenPy/New folder/roommates/game/audio/Don2.mp3' loop
+    play music r'audio/Don2.mp3' loop
     $rahul = Character("Rahul", image='rahul.jpg')
     scene hall3:
         xzoom 1.5
@@ -642,6 +494,7 @@ label rahul_question():
             # call the corresponding cif action 
             call call_action("IncScoreRahul") 
             call call_action("IncScoreRahul") 
+            call get_attribute("ScoreRahul", "score", "Player", "Rahul")
             jump after13
 
         "Yea about that , can I get a slight reduction in that if possible.":
@@ -856,7 +709,7 @@ label anya_intro():
 
 label start:
 
-    #call get_attribute("ScoreRahul", "score", "Player", "Rahul")
+    call get_attribute("ScoreRahul", "score", "Player", "Rahul")
 
     #"helllo [j_score]"
     # python:
@@ -871,7 +724,7 @@ label start:
     show ucdavis:
         xzoom 1  
         yzoom 1
-    play music r'C:/Users/kaler/Downloads/RenPy/New folder/roommates/game/audio/audio-piku.mp3' loop
+    # play music r'audio/audio-piku.mp3' loop
     # $renpy.set_music_volume(0.5)  
     #play music r'Don2.mp3' loop
     # This shows a character sprite. A placeholder is used, but you can
@@ -1071,6 +924,38 @@ label start:
 #         response_dict = json.loads(response.content)
 #         value = response_dict.get("value")  
 #     return value
+
+label get_attribute(types="", cl="", first="", second=""):
+    python:
+        import requests
+        import json
+        tp_res =requests.post(BASE_URL + 'getAttribute', headers=headers, json={
+            "class": cl,
+            "type": types,
+            "first": first,
+            "second": second
+        })
+        res = json.loads(tp_res)
+        score = res["value"]
+        # tp_res = requests.post(BASE_URL + 'getAttribute', headers=headers, json={
+        #     "class": cl,
+        #     "type": types,
+        #     "first": first,
+        #     "second": second
+        # }).json()
+        # val = tp_res[0]
+        # response_json_string = json.dumps(response_json)
+        # response_dict = json.loads(response_json_string)
+        # # Get the value of the "name" tag from the response_dict
+        # val = response_dict[0]
+
+    #"yoooo [val]"
+        # response_dict = (response_json_string)
+        # value = response_dict.get("value")
+    return
+
+
+
 
 label call_action(action=""):
     python: 

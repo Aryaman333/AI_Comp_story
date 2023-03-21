@@ -38,7 +38,7 @@ app.post('/performAction', bodyParser.json(), function (req, res) {
     res.end("OK");
 })
 
-app.post('/getAttribute', bodyParser.json(), function (req, res) {
+response = app.post('/getAttribute', bodyParser.json(), function (req, res) {
     var attributeQuery = {
         "class" : req.body['class'],
         "type" : req.body['type'],
@@ -47,6 +47,14 @@ app.post('/getAttribute', bodyParser.json(), function (req, res) {
     };
     res.end(JSON.stringify(cif.get(attributeQuery)));
 });
+console.log("hi")
+console.log(response)
+
+app.get('/getWinner', function (req, res) {
+    var storedVolitions = cif.calculateVolition(cast);
+    res.end(JSON.stringify(cif.getActions("Rahul", "John", storedVolitions, cast, 5, 5, 5)));
+    // res.end(JSON.stringify(cif.getAllActions()));
+})
 
 var server = app.listen(8081, function () {
     console.log("CiF backend listening")

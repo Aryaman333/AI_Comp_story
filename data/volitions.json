@@ -10,7 +10,7 @@
 					"class": "attribute",
 					"type": "preference",
 					"first": "Player",
-					"second": "john",
+					"second": "John",
 					"weight": 30,
 					"intentDirection": true,
 					"value": true
@@ -27,7 +27,7 @@
 					"class": "attribute",
 					"type": "hygiene",
 					"first": "Player",
-					"second": "john",
+					"second": "John",
 					"weight": 40,
 					"intentDirection": true,
 					"value": true
@@ -44,8 +44,8 @@
 					"class": "attribute",
 					"type": "intellect",
 					"first": "Player",
-					"second": "john",
-					"weight": 5,
+					"second": "John",
+					"weight": 10,
 					"intentDirection": true,
 					"value": true
 				}
@@ -62,7 +62,7 @@
 					"type": "preference",
 					"first": "Player",
 					"second": "Rahul",
-					"weight": 2,
+					"weight": 10,
 					"intentDirection": true,
 					"value": true
 				}
@@ -96,7 +96,7 @@
 					"type": "intellect",
 					"first": "Player",
 					"second": "Rahul",
-					"weight": 40,
+					"weight": 30,
 					"intentDirection": true,
 					"value": true
 				}

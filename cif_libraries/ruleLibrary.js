@@ -68,12 +68,12 @@
 
             //if the dictionary does not have an entry for the current predicate's first, initialize it
             if (dictionary[predicate.first] === undefined) {
-                dictionary[predicate.first] = "";		//possible optimization to change the initialization to zero
+                dictionary[predicate.first] = predicate.first;		//possible optimization to change the initialization to zero
             }
             //and the same for the second entry in there is a second character in the predicate
             if (predicate.second !== undefined) {
                 if (dictionary[predicate.second] === undefined) {
-                    dictionary[predicate.second] = "";
+                    dictionary[predicate.second] = predicate.second;
                 }
             }
         }

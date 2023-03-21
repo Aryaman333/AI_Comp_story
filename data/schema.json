@@ -1,17 +1,15 @@
 {
 	"schema": [
 		{
-			"class": "score",
-			"isBoolean": false,
-			"directionType": "directed",
+			"class": "Choose",
+			"isBoolean": true,
+			"directionType": "undirected",
 			"types": [
-				"ScoreJohn",
-				"ScoreRahul",
-				"ScoreShubh"
+				"choose_john",
+				"choose_rahul",
+				"choose_shubh"
 			],
-			"defaultValue": 0,
-			"minValue": -1000,
-			"maxValue": 1000,
+			"defaultValue": false,
 			"allowIntent": true
 		},
 		{
@@ -25,8 +23,8 @@
 			"directionType": "directed",
 			"allowIntent": true,
 			"defaultValue": 0,
-			"maxValue": 100,
-			"minValue": 0
+			"maxValue": 10000,
+			"minValue": -100000
 		}
 	]
 }

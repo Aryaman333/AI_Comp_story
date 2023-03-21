@@ -9,9 +9,13 @@ app.set('view engine', 'html');
 cif.init()
 var rawSchema = JSON.parse(cif.loadFile("data/schema.json"));
 var schema = cif.loadSocialStructure(rawSchema);
-
 var rawCast = JSON.parse(cif.loadFile("data/cast.json"));
+
 var cast = cif.addCharacters(rawCast);
+var rawTriggerRules = JSON.parse(cif.loadFile("data/triggerRules.json"));
+var triggerRules = cif.addRules(rawTriggerRules);
+
+
 
 var rawVolitionRules = JSON.parse(cif.loadFile("data/volitions.json"));
 var volitionRules = cif.addRules(rawVolitionRules);
@@ -29,7 +33,7 @@ var history = cif.addHistory(rawHistory);
 
 app.get('/getActions', function (req, res) {
     var storedVolitions = cif.calculateVolition(cast);
-    res.end(JSON.stringify(cif.getActions("Rahul", "John", storedVolitions, cast, 5, 5, 5)));
+    res.end(JSON.stringify(cif.getActions("Player", "John", storedVolitions, cast, 5, 5, 5)));
     // res.end(JSON.stringify(cif.getAllActions()));
 })
 
@@ -47,12 +51,14 @@ response = app.post('/getAttribute', bodyParser.json(), function (req, res) {
     };
     res.end(JSON.stringify(cif.get(attributeQuery)));
 });
-console.log("hi")
-console.log(response)
+
+app.get('/runTriggers', function (req, res) {
+    res.end(JSON.stringify(cif.runTriggerRules(cast)));
+})
 
 app.get('/getWinner', function (req, res) {
     var storedVolitions = cif.calculateVolition(cast);
-    res.end(JSON.stringify(cif.getActions("Rahul", "John", storedVolitions, cast, 5, 5, 5)));
+    res.end(JSON.stringify(cif.getActions("Player", "John", storedVolitions, cast, 5, 5, 5)));
     // res.end(JSON.stringify(cif.getAllActions()));
 })
 

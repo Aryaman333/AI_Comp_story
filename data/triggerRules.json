@@ -1,0 +1,126 @@
+{
+	"fileName": "triggerRules",
+	"type": "trigger",
+	"rules": [
+		{
+			"name": "Select John",
+			"conditions": [
+				{
+					"class": "attribute",
+					"type": "hygiene",
+					"first": "Player",
+                    "second":"John",
+                    "operator":">",
+					"value": 50
+				},
+				{
+					"class": "attribute",
+					"type": "preference",
+					"first": "Player",
+                    "second":"John",
+                    "operator":">",
+					"value": 20
+				},
+                {
+					"class": "attribute",
+					"type": "intellect",
+					"first": "Player",
+                    "second":"John",
+                    "operator":">",
+					"value": 40
+				}
+			],
+			"effects": [
+				{
+					"class": "Choose",
+					"type": "choose_john",
+					"first": "John",
+                    "operator":"=",
+					"value": true
+				}
+			],
+			"origin": "triggerRules",
+			"id": "triggerRules_1"
+		},
+        {
+			"name": "Select Rahul",
+			"conditions": [
+				{
+					"class": "attribute",
+					"type": "hygiene",
+					"first": "Player",
+                    "second":"Rahul",
+                    "operator":">",
+					"value": 60
+				},
+				{
+					"class": "attribute",
+					"type": "preference",
+					"first": "Player",
+                    "second":"Rahul",
+                    "operator":">",
+					"value": 10
+				},
+                {
+					"class": "attribute",
+					"type": "intellect",
+					"first": "Player",
+                    "second":"Rahul",
+                    "operator":">",
+					"value": 40
+				}
+			],
+			"effects": [
+				{
+					"class": "Choose",
+					"type": "choose_rahul",
+					"first": "Rahul",
+                    "operator":"=",
+					"value": true
+				}
+			],
+			"origin": "triggerRules",
+			"id": "triggerRules_1"
+		},
+        {
+			"name": "Select Shubh",
+			"conditions": [
+				{
+					"class": "attribute",
+					"type": "hygiene",
+					"first": "Player",
+                    "second":"Shubh",
+                    "operator":">",
+					"value": 20
+				},
+				{
+					"class": "attribute",
+					"type": "preference",
+					"first": "Player",
+                    "second":"Rahul",
+                    "operator":">",
+					"value": 60
+				},
+                {
+					"class": "attribute",
+					"type": "intellect",
+					"first": "Player",
+                    "second":"Rahul",
+                    "operator":">",
+					"value": 40
+				}
+			],
+			"effects": [
+				{
+					"class": "Choose",
+					"type": "choose_shubh",
+					"first": "Shubh",
+                    "operator":"=",
+					"value": true
+				}
+			],
+			"origin": "triggerRules",
+			"id": "triggerRules_1"
+		}
+	]
+}

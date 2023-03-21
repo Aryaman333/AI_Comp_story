@@ -20,12 +20,11 @@ Open the Renpy Launcher(.exe) application. In Preferences change the directory t
 <h3>How to run the Game</h3>
 <ul>
   <li>Install Node v10 and above.  </li> 
+  <li>Install all the packages: npm install</li>
   <li>Run the server: node server.js</li>
   <li>Open the folder renpy and run the renpy application.</li>
 </ul>
 
-
-Run the server: node server.js
 
 <h3>Video Demo</h3>
 https://drive.google.com/file/d/1A40ia1jApyzgDeP_P90iQH4HxX0TAqyd/view?usp=sharing

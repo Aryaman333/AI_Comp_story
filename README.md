@@ -17,7 +17,7 @@ Open the Renpy Launcher(.exe) application. In Preferences change the directory t
   <li>Press escape key to jump to the main menu, if required at any time in between the game.</li>
 </ul>
 
-</h3>How to run the Game</h3>
+<h3>How to run the Game</h3>
 <ul>
   <li>Install Node v10 and above.  </li> 
   <li>Run the server: node server.js</li>

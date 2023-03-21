@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 859: expected statement.
-    get_attribute("ScoreRahul", "score", "Player", "Rahul")
-                                                           ^
+File "game/script.rpy", line 938: invalid syntax
+                "class": cl,[;]
+                              ^
+    
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Mar 20 18:46:39 2023
+Mon Mar 20 21:45:55 2023

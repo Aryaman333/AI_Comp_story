@@ -2,24 +2,24 @@
 	"history": [{
 		"pos": 0,
 		"data": [{
-			"class" : "attribute",
-			"type"  : "compatibility-score",
+			"class" : "score",
+			"type"  : "ScoreShubh",
 		
-			"first" : "Rahul",
-			"value" : 15
+			"first" : "Shubh",
+			"value" : 10
 				},
 				{
-			"class" : "attribute",
-			"type"  : "compatibility-score",
+			"class" : "score",
+			"type"  : "ScoreJohn",
 				
-			"first" : "Shubh",
+			"first" : "John",
 			"value" : -10
 				},
 				{
-			"class" : "attribute",
-			"type"  : "compatibility-score",
+			"class" : "score",
+			"type"  : "ScoreRahul",
 						
-			"first" : "John",
+			"first" : "Rahul",
 			"value" : 0
 				}
 		]}

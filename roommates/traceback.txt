@@ -1,33 +1,39 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 859, in script call
-    call get_attribute("ScoreRahul", "score", "Player", "Rahul")
-  File "game/script.rpy", line 1062, in script
+  File "game/script.rpy", line 626, in script call
+    call anya_question()
+  File "game/script.rpy", line 215, in script call
+    call call_action("decScoreShubh")
+  File "game/script.rpy", line 776, in script
     python:
-  File "game/script.rpy", line 1071, in <module>
-    response_dict = json.loads(response.content)
-JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+  File "game/script.rpy", line 778, in <module>
+    requests.post(BASE_URL+'performAction',headers=headers, json={
+ConnectionError: HTTPConnectionPool(host='localhost', port=8081): Max retries exceeded with url: /performAction (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000000060be670>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 859, in script call
-    call get_attribute("ScoreRahul", "score", "Player", "Rahul")
-  File "game/script.rpy", line 1062, in script
+  File "game/script.rpy", line 626, in script call
+    call anya_question()
+  File "game/script.rpy", line 215, in script call
+    call call_action("decScoreShubh")
+  File "game/script.rpy", line 776, in script
     python:
-  File "C:\Users\kaler\Downloads\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
+  File "C:\Users\HP\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\kaler\Downloads\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
+  File "C:\Users\HP\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/script.rpy", line 1071, in <module>
-    response_dict = json.loads(response.content)
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/json/__init__.py", line 346, in loads
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/json/decoder.py", line 337, in decode
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/json/decoder.py", line 355, in raw_decode
-JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+  File "game/script.rpy", line 778, in <module>
+    requests.post(BASE_URL+'performAction',headers=headers, json={
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/requests/api.py", line 116, in post
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/requests/api.py", line 60, in request
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/requests/sessions.py", line 524, in request
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/requests/sessions.py", line 637, in send
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/requests/adapters.py", line 516, in send
+ConnectionError: HTTPConnectionPool(host='localhost', port=8081): Max retries exceeded with url: /performAction (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000000060be670>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
 
-Windows-10-10.0.19045 AMD64
+Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 roommates 1.0
-Mon Mar 20 18:47:00 2023
+Tue Mar 21 00:06:51 2023

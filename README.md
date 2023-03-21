@@ -17,5 +17,10 @@ Open the Renpy Launcher(.exe) application. In Preferences change the directory t
   <li>Press escape key to jump to the main menu, if required at any time in between the game.</li>
 </ul>
 
+</h3>How to run the Game</h3>
+Install Node v10 and above.
+Install all the packages: npm install
+Run the server: node server.js
+Open the folder recursionrenpy and run the renpy application.
 <h3>Video Demo</h3>
 https://drive.google.com/file/d/1A40ia1jApyzgDeP_P90iQH4HxX0TAqyd/view?usp=sharing

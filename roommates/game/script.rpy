@@ -1,15 +1,9 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-# define e = Character("Eileen")
-
-# $john = Character("John", image='C:\Users\HP\Downloads\Test_file\game\images\john.jpg')
-# The game starts here.
+﻿
 $player = ""
 
 $import renpy.video
+
+# Server details 
 init python:
     import requests
     import json
@@ -18,157 +12,21 @@ init python:
         'Content-Type': 'application/json',
     }
 
-# label john_question():
-#     $john = Character("John", image="john.jpg")
 
-#     scene hall1:
-#         xzoom 2.0
-#         yzoom 1.5
-#     show john:
-#         xalign 0.0
-#         yalign 1.0
-    
-#     john " Hi [player] Let me give you a quick room tour before I jump to the questions"
-#     $renpy.movie_cutscene("house1.webm")
-#     john "Hope you liked the place lets jump to the questions real quick"
-#     john "How often do you clean your room in general?"
-#     menu:       
-#         "Everyday after work, I cant focus in a messy room":
-#             # call the corresponding cif action 
-#             call call_action("IncScoreJohn")
-#             jump after
-
-#         "Twice in a week, I am mostly engaged in work but I cant work sitting in a mess, so i clean often":
-#             # call the corresponding cif action  
-#             jump after           
-      
-#         "Rarely(once in a week), I stay outdoors most of the time, Anyways we have to use the room mostly for sleeping":
-#             # call the corresponding cif action  
-#             jump after         
-
-#     label after:
-#         "Got it!"
-
-
-#     john "Do you smoke btw?"
-#     menu:       
-#         "No, I don’t smoke, I’m actually allergic to it and can’t imagine living with someone who does smoke":
-#             # call the corresponding cif action  
-#             jump after1
-
-#         "I smoke occasionally, I am not addicted to it, I just enjoy it occasionally as in a party or something ":
-#             # call the corresponding cif action  
-#             jump after1           
-        
-#         "Yeah, I’m a chain smoker, I totally understand if anyone living with me is uncomfortable with it, tho i don’t smoke in the shared space.  ":
-#             # call the corresponding cif action  
-#             jump after1        
-            
-#     label after1:
-#         john"Good to know!"
-
-#     john "What are your thoughts about Private Space"
-#     menu:       
-#         "I am a very private person and respect people who know the value of it.":
-#             # call the corresponding cif action  
-#             jump after2
-
-#         "I respect privacy when there is work going on, Usually tho I like getting along with my  roommate and would like living with someone who is outgoing ":
-#             # call the corresponding cif action  
-#             jump after2           
-        
-#         "I am an extroverted person and would like to live when me and my roommate can support each other in work and organize some parties.":
-#             # call the corresponding cif action  
-#             jump after2        
-            
-#     label after2:
-#         john "Thanks for answering that, that very important for me"
-
-
-#     john "What are your thoughts about Respectfulness"
-#     menu:       
-#         " I value mutual respect and would always avoid unnecessary arguments and prefer peacefully sorting out even if something happens":
-#             # call the corresponding cif action  
-#             jump after3
-
-#         "I obviously value mutual respect, I don’t cause any trouble to anyone as long as they are not bothering me, However, if there is some argument sometime, I like to make things clear with my expectations to avoid the same in future.":
-#             # call the corresponding cif action  
-#             jump after3           
-      
-            
-#     label after3:
-#         john "Got it"
-
-#     john "How do you feel about noise levels in the apartment?"
-#     menu:       
-#         "I don't mind some background noise, and I'm always up for having a good time with my roommate and their friends.":
-#             # call the corresponding cif action  
-#             jump after4
-
-#         "I prefer a quieter living environment and would appreciate it if my roommate kept noise levels down, especially late at night.":
-#             # call the corresponding cif action  
-#             jump after4
-
-#         "As long as the noise is reasonable and respectful of others' needs, I don't have a strong preference either way.":
-#             jump after4           
-      
-            
-#     label after4:
-#         john "Hmmm... Interesting"
-
-#     john " How do you feel about splitting household chores with your roommate?"
-#     menu:       
-#         " I am happy to divide chores equally and make a schedule so that everything gets done efficiently and fairly.":
-#             # call the corresponding cif action  
-#             jump after5
-
-#         "I prefer to take care of my own messes and would rather not be responsible for my roommate's chores or vice versa.":
-#             # call the corresponding cif action  
-#             jump after5
-
-#         " I am open to discussing chore responsibilities with my roommate and finding a system that works for both of us.":
-#             jump after5           
-      
-            
-#     label after5:
-#         john "Okkk.. "
-
-#     john " What is your stance on having pets in the apartment?"
-#     menu:       
-#         "  I love animals and would be open to having a pet in the apartment, as long as my roommate is comfortable with it and we both agree on the type and care of the pet.":
-#             # call the corresponding cif action  
-#             jump after6
-
-#         "I am not a pet person and would prefer not to have any pets in the apartment.":
-#             # call the corresponding cif action  
-#             jump after6
-
-#         " I am open to discussing the possibility of having a pet in the apartment with my roommate and finding a solution that works for both of us.":
-#             jump after6           
-      
-            
-#     label after6:
-#         john "Ahh.. nicee"
-
-#     hide hall1
-#     hide john
-#     show ucdavis:
-#         xzoom 1  
-#         yzoom 1
-#     return 
-
+# The following is the label for John's questionaire
 label john_question():
-    
+    # Shows the character
     $john = Character("John", image="john.jpg")
     scene hall1:
         xzoom 2.0
         yzoom 1.5
-    play music r'C:/Users/kaler/Downloads/RenPy/New folder/roommates/game/audio/audio_john.mp3' loop
+    play music r'audio/audio_john.mp3' loop
     show john:
         xalign 0.0
         yalign 1.0
     
-    john " Hi [player] Let me give you a quick room tour before I jump to the questions"
+    john " Hi [player] Let me give you a quick room tour before I jump to the questions, hope you have forgiven me for being rude to you on first day of college, I was having a bad day!"
+    #displays the character's hall
     $renpy.movie_cutscene("house1.webm")
     john "Hope you liked the place lets jump to the questions real quick"
     john "How often do you clean your room in general?"
@@ -176,10 +34,12 @@ label john_question():
         "Everyday after work, I cant focus in a messy room":
             # call the corresponding cif action 
             call call_action("IncScoreJohn")
+            call call_action("IncScoreJohn")
             jump after
 
         "Twice in a week, I am mostly engaged in work but I cant work sitting in a mess, so i clean often":
             # call the corresponding cif action  
+            call call_action("IncScoreJohn")
             jump after           
       
         "Rarely(once in a week), I stay outdoors most of the time, Anyways we have to use the room mostly for sleeping":
@@ -195,7 +55,7 @@ label john_question():
     menu:       
         "No, I don’t smoke, I’m actually allergic to it and can’t imagine living with someone who does smoke":
             # call the corresponding cif action  
-            call call_action("IncScoreJohn")
+            
             call call_action("IncScoreJohn")
             jump after1
 
@@ -320,9 +180,10 @@ label john_question():
     return 
 
 
-
+# The following is the Anya's questionaire
 label anya_question():
-    play music r'C:/Users/kaler/Downloads/RenPy/New folder/roommates/game/audio/audio_anya.mp3' loop
+    play music r'audio/audio_anya.mp3' loop
+    #displaying character's image
     $anya = Character("Anya", image='anya.jpg')
     scene hall2:
         xzoom 5
@@ -330,12 +191,12 @@ label anya_question():
     show anya:
         xalign 0.0
         yalign 1.0
-    anya "Hi buddy welcome to my humble aboard, hopefully you like it, let me ask some routine questions you know how it is, so here goes"
+    anya "Hi buddy welcome to my humble aboard, hopefully you like it, seeing you after such a long time brings back so many highschool memories let me ask some routine questions you know how it is, so here goes"
     anya " Let me give you a quick room tour before I jump to the questions"
     $renpy.movie_cutscene("guitar.webm")
     anya "Ok that was my place hope you liked it lets get started then..."
     anya "What time do you usually go to bed and wake up?"
-
+    # Menu for showing questions
     menu:       
         "I like to get to bed early and wake up early, so I'm usually asleep by 10 pm and up by 6 am.":
             # call the corresponding cif action  
@@ -363,7 +224,7 @@ label anya_question():
     menu:       
         "I love having friends over and hosting small gatherings occasionally, but I always give my roommate a heads up and make sure they are comfortable with it.":
             # call the corresponding cif action  
-            call call_action("IncScoreShubh")
+            
             call call_action("IncScoreShubh")
             jump after8
 
@@ -450,12 +311,12 @@ label anya_question():
         " I love cooking and would be happy to share meals or cook together with my roommate.":
             # call the corresponding cif action  
             call call_action("IncScoreShubh")
-            call call_action("IncScoreShubh")
+           
             jump after12
 
         "I prefer to cook for myself and wouldn't want to share food, but I'm okay with occasionally cooking at the same time.":
             # call the corresponding cif action
-            call call_action("IncScoreShubh")  
+            
             jump after12
 
         " I don't cook very often and usually just order takeout, so I don't have a strong preference either way.":
@@ -472,158 +333,11 @@ label anya_question():
         xzoom 1  
         yzoom 1
     return 
-
-
-# label rahul_question():
-#     #play music r'C:/Users/HP/Downloads/Test_file/game/audio/
-#Don2.mp3' loop
-#     $rahul = Character("Rahul", image='rahul.jpg')
-#     scene hall3:
-#         xzoom 1.5
-#         yzoom 1.5
-#     show rahul:
-#         xalign 0.0
-#         yalign 0.9
-
-#     rahul "Heyy..[player] thanks for coming  "
-#     rahul "Let me give you a quick house tour"
-#     $renpy.movie_cutscene("house3.webm")
-#     rahul "The leasing rate for the room will be USD 1000. Are you okay with the cost?"
-
-#     menu:       
-#         "Yes sure no problem sounds fine":
-#             # call the corresponding cif action  
-#             jump after13
-
-#         "Yea about that , can I get a slight reduction in that if possible.":
-#             # call the corresponding cif action  
-#             jump after13 
-
-#         "Oh that seems really high and out of my budget can you please give an exemption like for the first few months.":
-#             # call the corresponding cif action  
-#             jump after13               
-
-#     label after13:
-#         "Okk.."
-        
-
-
-#     rahul "Who is your favorite actor?"
-#     menu:       
-#         "Obviously not even a question it has to be Shahruk Khan, the king, his wit his charm his range of expressions, his versatility is of top class":
-#             # call the corresponding cif action  
-#             jump after14
-
-#         "I dont watch a lot of movies, I am boring that way.":
-#             # call the corresponding cif action  
-#             jump after14 
-        
-#         "Dont have particular preference, I like good production over good actors.":
-#             # call the corresponding cif action  
-#             jump after14        
-            
-#     label after14:
-#         rahul"Got it"
-
-#     rahul "How often do you party and mind patries in your household?"
-#     menu:       
-#         "I love parties , I party every weekend sometimes for 2-3 days straight":
-#             # call the corresponding cif action  
-#             jump after15
-
-#         "I like them,never hosted one but always up for one.":
-#             # call the corresponding cif action  
-#             jump after15           
-        
-#         "I usually dont party that much I like studying at night and prefer silence while doing so.":
-#             # call the corresponding cif action  
-#             jump after15        
-            
-#     label after15:
-#         rahul "Got it!"
-
-
-#     rahul "How often do you cook ?"
-#     menu:       
-#         "I usually dont cook that much.":
-#             # call the corresponding cif action  
-#             jump after16
-
-#         "I love cooking now and then":
-#             # call the corresponding cif action  
-#             jump after16
-
-#         "I only eat home cooked food and we can even cook together":
-#             # call the corresponding cif action  
-#             jump after16                
-      
-            
-#     label after16:
-#         rahul "Got it!"
-
-#     rahul "Is cleanliness important for you "
-#     menu:       
-#         "Yea i keep my room very clean and expect the house to be clean as well and will regularly clean the house":
-#             # call the corresponding cif action  
-#             jump after17
-
-#         "Yeah I am a person who is not very particular but will keep my things clean.":
-#             # call the corresponding cif action  
-#             jump after17
-
-#         "We can hire a maid":
-#             jump after17           
-      
-            
-#     label after17:
-#         rahul "Got it!"
-
-#     rahul "Do you own a vehicle"
-#     menu:       
-#         "Yes I have a car that I will use to commute to college":
-#             # call the corresponding cif action  
-#             jump after18
-
-#         "I have a bike":
-#             # call the corresponding cif action  
-#             jump after18
-
-#         "I don’t currently, I haven’t figured out how i will commute to college yet":
-#             jump after18           
-      
-            
-#     label after18:
-#         rahul "Got it!"
-
-#     rahul "How long are you thinking of leasing the apartment?"
-#     menu:       
-#         "3 months":
-#             # call the corresponding cif action  
-#             jump after19
-
-#         "4 years":
-#             # call the corresponding cif action  
-#             jump after19
-
-#         "1 year":
-#             # call the corresponding cif action 
-#             jump after19          
-      
-            
-#     label after19:
-#         rahul "Got it!"    
-
-#     hide hall3
-
-#     hide rahul
-#     stop music
-#     show ucdavis:
-#         xzoom 1  
-#         yzoom 1
-#     return         
-
+     
+# Rahul's questionnaire
 label rahul_question():
-    play music r'C:/Users/kaler/Downloads/RenPy/New folder/roommates/game/audio/Don2.mp3' loop
+    # Audio for characters background
+    play music r'audio/Don2.mp3' loop
     $rahul = Character("Rahul", image='rahul.jpg')
     scene hall3:
         xzoom 1.5
@@ -661,7 +375,7 @@ label rahul_question():
 
     rahul "Who is your favorite actor?"
     menu:       
-        "Obviously not even a question it has to be Shahrukh Khan, the king, his wit his charm his range of expressions, his versatility is of top class":
+        "Obviously not even a question it has to be Shahrukh Khan, the King, his wit his charm his range of expressions, his versatility is of top class":
             # call the corresponding cif action  
             call call_action("IncScoreRahul")
             call call_action("IncScoreRahul")  
@@ -677,7 +391,7 @@ label rahul_question():
             jump after14        
             
     label after14:
-        rahul"Got it"
+        rahul"That may sound a dumb question but thats something really important for me as I am a film student & a huge SRK fan"
 
     rahul "How often do you party and mind patries in your household?"
     menu:       
@@ -699,7 +413,7 @@ label rahul_question():
             jump after15        
             
     label after15:
-        rahul "Got it!"
+        rahul "Interesting"
 
 
     rahul "How often do you cook ?"
@@ -721,7 +435,7 @@ label rahul_question():
       
             
     label after16:
-        rahul "Got it!"
+        rahul "Is it so..."
 
     rahul "Is cleanliness important for you "
     menu:       
@@ -742,7 +456,7 @@ label rahul_question():
       
             
     label after17:
-        rahul "Got it!"
+        rahul "Uhh huh.."
 
     rahul "Do you own a vehicle"
     menu:       
@@ -760,7 +474,7 @@ label rahul_question():
       
             
     label after18:
-        rahul "Got it!"
+        rahul "Ohh wow"
 
     rahul "How long are you thinking of leasing the apartment?"
     menu:       
@@ -793,7 +507,7 @@ label rahul_question():
         yzoom 1
     return         
 
-
+# Function to call john's introduction
 label john_intro():
     $john = Character("John", image='john.jpg')
     show john:
@@ -806,12 +520,12 @@ label john_intro():
 
     #Intro of the character
     "{size=-5}John is a recent graduate and has just landed his first job in a new city.
-    He is looking for a roommate to share expenses with and make the transition to a new city smoother.{/size} "
+    He is looking for a roommate to share expenses with and make the transition to a new city smoother. He was a little rude to you on the first day of college, when you were confused and asked him about which room to go{/size} "
     john "Hello [player] how are you doing today, I am really excited to meet you "
 
     # hide john
     return
-
+# Function to call Rahul's introduction
 label rahul_intro():
     $rahul = Character("Rahul", image='rahul.jpg')
 
@@ -822,7 +536,7 @@ label rahul_intro():
 
 
 #Intro of the character
-    "{size=-5}Meet Rahul Raichand, he is a senior at UC Davis studying filmmaking. A born performer he always had a penchant for art , movies specifically. Hence he decided to study Film making,.
+    "{size=-8}Meet Rahul Raichand, he is a senior at UC Davis studying filmmaking. A born performer he always had a penchant for art , movies specifically. Hence he decided to study Film making,.
     He is a passionate, caring human being and is also a bit of womanizer. He is currently dating Anjali from his class but the rumor is he is also interested Dean’s daughter Tina Malhotra. 
     He is currently looking for a roommate who can take the other spare room and be a part of his fun and adventurous life {/size}"
 
@@ -831,9 +545,9 @@ label rahul_intro():
 
     # hide rahul
     return
-
+# Function to call Anya's introduction
 label anya_intro():
-    $anya = Character("anya", image='anya.jpg')
+    $anya = Character("Anya", image='anya.jpg')
 
     show anya:
         xalign 1.0
@@ -842,9 +556,9 @@ label anya_intro():
 
 
 #Intro of the character
-    "{size=-5}anya is an international student at UC davis. He just moved from his home country(India) to UC Davis to pursue his graduate studies. 
-    Its his first international travel and happens to be a long one. Finding the ideal roommate who can keep a productive environment around
-    him is a concern for him. He is a friend of the user.{/size} "
+    "{size=-8}Anya is an international student at UC davis. She just moved from her home country(India) to UC Davis to pursue his graduate studies. 
+    Its her first international travel and happens to be a long one. Finding the ideal roommate who can keep a productive environment around
+    her is a concern for her. She was in the same school as you in India, you even had a little crush on her back in the day.{/size} "
 
 
     anya "Yo [player]  how is it hanging, Hope you are not a phsycopath like the the last guy I interviewed, lets get started shall we"
@@ -853,82 +567,32 @@ label anya_intro():
     return
    
 
-
+#main function to start the game
 label start:
 
-    #call get_attribute("ScoreRahul", "score", "Player", "Rahul")
 
-    #"helllo [j_score]"
-    # python:
-    #     import openai
-    # "Yooooooooooooooooooooooooooooooooooooooo"
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-    
-
+    #inctroduction 
     $renpy.movie_cutscene("intro.webm")
     show ucdavis:
         xzoom 1  
         yzoom 1
-    play music r'C:/Users/kaler/Downloads/RenPy/New folder/roommates/game/audio/audio-piku.mp3' loop
-    # $renpy.set_music_volume(0.5)  
-    #play music r'Don2.mp3' loop
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-    
 
 
-    # These display lines of dialogue.
+    #background music
+    play music r'audio/audio-piku.mp3' loop
+
+ 
  
     "{b}Welcome to the Roomate Finder Game, lets find a roomate real fast, 
     the next quarter is upon us you dont want to be stuck at your aunt's place do you !!!{/b}"
 
-    # "What is your name"
 
-    # "Welcome Piyush !! lets get started"
-    # image john = "images/john.jpg"
-    # init:
-    #     $ john = Character("John", image=john, xpos=0.2, ypos=0.5)
-
-    $ player = renpy.input("Enter your name:")
+    #taking player's name as input
+    $player = renpy.input("Enter your name:")
 
     "Welcome [player] !! lets get started"
 
     "Its time to meet the characters"
-    # init python:
-    #     import openai
-
-    #     # Use the OpenAI API
-    #     openai.api_key = "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"
-    #     prompt = "What is the meaning of life?"
-    #     response = openai.Completion.create(
-    #         engine="text-davinci-002",
-    #         prompt=prompt,
-    #         max_tokens=50,
-    #         n=1,
-    #         stop=None,
-    #         temperature=0.5,
-    #     )
-    #     answer = response.choices[0].text.strip()
-
-    # #$meaning_of_life = python "answer"
-    # "The meaning of life is: [answer]"
-
-    
-
-
-    # show rahul at left
-    # rahul "Hello [player]  I am Rahul, you must have heard my name I am quite famous, Lets finish this up quickly I have to meet Anjali my girlfriend"
-
-    # hide rahul
-
-    # show anya at left
-    # anya "Yo [player]  how is it hanging, Hope you are not a phsycopath like the the last guy I interviewed, lets get started shall we"
-
-    # hide anya
-
 
 
 
@@ -966,17 +630,11 @@ label start:
             $npc.pop('3')
         else:
             
-            $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+            $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice(1/2/3) Note - You cannot enter the same choice again")
             jump x
 
-    # python:
-        
-    #     for k,v in npc.items():
-    #         #t = npc[num]
-    #         renpy.show("Option {}: {}".format(k,v))
-
     #choosing second character
-    $choice = renpy.input("That was nice onto the next one, You have the following roommate interviews left please select one of them")
+    $choice = renpy.input("That was nice onto the next one, You have the following roommate interviews left please select one of them(1/2/3) Note - You cannot enter the same choice again")
 
 
         #label y:
@@ -987,7 +645,7 @@ label start:
                 call john_question()
                 $npc.pop('1')
             else:
-                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice(1/2/3) Note - You cannot enter the same choice again")
                 jump y
             
         elif choice=='2':
@@ -996,7 +654,7 @@ label start:
                 call anya_question()
                 $npc.pop('2')
             else:
-                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice(1/2/3) Note - You cannot enter the same choice again")
                 jump y
             
         elif choice=='3':
@@ -1005,20 +663,15 @@ label start:
                 call rahul_question()
                 $npc.pop('3')
             else:
-                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice(1/2/3) Note - You cannot enter the same choice again")
                 jump y
 
             
         else:           
-            $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+            $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice(1/2/3) Note - You cannot enter the same choice again")
             jump y
             
     #choosing the third character
-    # python:
-
-    # for num in npc:
-    #     t = npc[num]
-    #     "Option [num]: [t]"
 
     $choice = renpy.input("Phew !! 2 interviews down one last to go, You are almost there champ keep going, Davis's good weather awaits ")
 
@@ -1029,7 +682,7 @@ label start:
                 call john_question()
                 $npc.pop('1')
             else:
-                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice(1/2/3) Note - You cannot enter the same choice again")
                 jump z
             
         elif choice=='2':
@@ -1038,7 +691,7 @@ label start:
                 call anya_question()
                 $npc.pop('2')
             else:
-                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice(1/2/3) Note - You cannot enter the same choice again")
                 jump z
             
         elif choice=='3':
@@ -1047,31 +700,78 @@ label start:
                 call rahul_question()
                 $npc.pop('3')
             else:
-                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+                $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice(1/2/3) Note - You cannot enter the same choice again")
                 jump z
 
             
         else:           
-            $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice")
+            $choice = renpy.input("Hey come on now! these people are not that bad, they seem to be nice please enter a valid choice(1/2/3) Note - You cannot enter the same choice again")
             jump z
+
+    #Retrieving the scores from server that are updated by cif
+    call get_attribute("ScoreJohn", "score", "Player", "John")
+    $s1 = score
+    call get_attribute("ScoreShubh", "score", "Player", "Shubh")
+    $s2 = score
+    call get_attribute("ScoreRahul", "score", "Player", "Rahul")
+    $s3=score
+
+    # "The final scores are John [s1]  Anya [s2]  Rahul [s3]"
+
+    show ucdavis
+    play music r'audio/drums.mp3' loop
+    $fin = max(max(s1,s2),s3)
+
+
+    # Checking which character won 
+    "{b} Its time to reveal who will be crowned as the winner of Roomate Roulette and who is going to be your future flatmate {\b}"
+    if fin==s1:
+        $john = Character("John", image='john.jpg')
+        "The winner is John with [s1] points" 
+        show john:
+            xalign 0.5
+            yalign 0.5
+    
+    elif fin==s2:
+        $anya = Character("anya", image='anya.jpg')
+        "The winner is Anya with [s2] points"      
+        show anya:
+            xalign 0.5
+            yalign 0.5
+
+    else:
+        $rahul = Character("Rahul", image='Rahul.jpg')
+        "The winner is Rahul with [s3] points"       
+        show rahul:
+            xalign 0.5
+            yalign 0.5
+    
+    "The final points were John:[s1]  Anya :[s2]  Rahul :[s3]"
+
+    "Thank you for playing the game"
+
+    return
 
 
     
+# Function to retrieve final compatibility score from cif Server
+label get_attribute(types="", cl="", first="", second=""):
+    python:
+        import requests
+        import json
+        rec = requests.post(BASE_URL + 'getAttribute', headers=headers, json={
+            "class": cl,
+            "type": types,
+            "first": first,
+            "second": second
+        })
+        res = json.loads(rec.text)
+        score = res[0]["value"]
 
-# label get_attribute(types="", cl="", first="", second=""):
-#     python:
-#         import requests
-#         import json
-#         response = requests.get(BASE_URL + 'getAttribute', headers=headers, json={
-#             "class": cl,
-#             "type": types,
-#             "first": first,
-#             "second": second
-#         })
-#         response_dict = json.loads(response.content)
-#         value = response_dict.get("value")  
-#     return value
 
+
+
+# Function to post a given action to cif
 label call_action(action=""):
     python: 
         import requests
@@ -1079,15 +779,3 @@ label call_action(action=""):
             'action': action
         })
 
-# label get_attribute(types="",cl="",first="",second=""):
-#     python:
-#         import requests
-
-#         requests.get(BASE_URL+'getAttribute',headers=headers, json={
-#             "class" : cl,
-#             "type" : types,
-#             "first" : first,
-#             "second": second
-#         })
-
-    return

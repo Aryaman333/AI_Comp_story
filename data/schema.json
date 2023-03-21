@@ -8,6 +8,7 @@
 				"ScoreJohn",
 				"ScoreRahul",
 				"ScoreShubh"
+				
 			],
 			"defaultValue": 0,
 			"minValue": -1000,

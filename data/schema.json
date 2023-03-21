@@ -4,22 +4,29 @@
 			"class": "score",
 			"isBoolean": false,
 			"directionType": "directed",
-			"types": ["ScoreJohn", "ScoreRahul","ScoreShubh"],
+			"types": [
+				"ScoreJohn",
+				"ScoreRahul",
+				"ScoreShubh"
+			],
 			"defaultValue": 0,
-			"minValue": 0,
-			"maxValue": 100,
+			"minValue": -1000,
+			"maxValue": 1000,
 			"allowIntent": true
 		},
 		{
-			"class" : "attribute",
-			"types" : ["hygiene", "intellect","preference"],
-			"isBoolean" : false,
-			"directionType" : "directed",
-			"allowIntent" : true,
-			"defaultValue" : 0,
-			"maxValue" : 100,
-			"minValue" : 0
+			"class": "attribute",
+			"types": [
+				"hygiene",
+				"intellect",
+				"preference"
+			],
+			"isBoolean": false,
+			"directionType": "directed",
+			"allowIntent": true,
+			"defaultValue": 0,
+			"maxValue": 100,
+			"minValue": 0
 		}
 	]
 }
-
